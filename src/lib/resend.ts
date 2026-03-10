@@ -44,7 +44,7 @@ export async function sendBookingEmail(data: BookingEmailData) {
   `
 
   return getResend().emails.send({
-    from: process.env.BOOKING_FROM_EMAIL || 'bookings@send.trolleydogsft.com',
+    from: process.env.BOOKING_FROM_EMAIL || 'bookings@trolleydogsft.com',
     to: process.env.BOOKING_TO_EMAIL || 'gerald@trolleydogsft.com',
     cc: process.env.BOOKING_CC_EMAIL ? [process.env.BOOKING_CC_EMAIL] : undefined,
     replyTo: data.email,
@@ -55,7 +55,7 @@ export async function sendBookingEmail(data: BookingEmailData) {
 
 export async function sendContactEmail(data: { name: string; email: string; message: string }) {
   return getResend().emails.send({
-    from: process.env.BOOKING_FROM_EMAIL || 'bookings@send.trolleydogsft.com',
+    from: process.env.BOOKING_FROM_EMAIL || 'bookings@trolleydogsft.com',
     to: process.env.NEXT_PUBLIC_BUSINESS_EMAIL || 'hello@trolleydogsft.com',
     replyTo: data.email,
     subject: `New Contact Form Message — ${data.name}`,
