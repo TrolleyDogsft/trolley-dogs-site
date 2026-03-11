@@ -1,0 +1,10 @@
+{
+  "allowedTools": [
+    "Bash(*)",
+    "Read(*)",
+    "Edit(*)",
+    "Write(*)",
+    "Glob(*)",
+    "Grep(*)"
+  ]
+}
