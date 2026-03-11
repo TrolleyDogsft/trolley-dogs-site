@@ -42,7 +42,7 @@ export function Footer() {
           </ul>
         </nav>
 
-        {/* Contact */}
+        {/* Contact + Social */}
         <div className="text-center md:text-right space-y-1">
           <a
             href={`tel:${siteConfig.phone.replace(/-/g, '')}`}
@@ -59,6 +59,30 @@ export function Footer() {
           <p className="text-[rgba(246,241,232,0.25)] text-xs pt-1">
             Greater Boston &amp; New England
           </p>
+          {(siteConfig.social.instagram !== '#' || siteConfig.social.facebook !== '#') && (
+            <div className="flex justify-center md:justify-end gap-4 pt-3">
+              {siteConfig.social.instagram !== '#' && (
+                <a
+                  href={siteConfig.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[rgba(246,241,232,0.35)] hover:text-[#FFD76F] text-[0.7rem] font-bold tracking-[0.1em] uppercase transition-colors"
+                >
+                  Instagram
+                </a>
+              )}
+              {siteConfig.social.facebook !== '#' && (
+                <a
+                  href={siteConfig.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[rgba(246,241,232,0.35)] hover:text-[#FFD76F] text-[0.7rem] font-bold tracking-[0.1em] uppercase transition-colors"
+                >
+                  Facebook
+                </a>
+              )}
+            </div>
+          )}
         </div>
       </div>
 

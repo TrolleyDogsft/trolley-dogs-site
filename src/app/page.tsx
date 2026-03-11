@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { siteConfig, stats, services, menuFeatured, seo } from '@/content/site'
+import { siteConfig, stats, services, menuFeatured, testimonials, seo } from '@/content/site'
 import { getUpcomingEvents, formatEventDate, formatEventTime } from '@/lib/calendar'
 import { NewsletterForm } from '@/components/newsletter-form'
 
@@ -228,6 +228,30 @@ export default async function HomePage() {
             >
               Get a Quote
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="bg-[#0D0A09] py-20 px-6 md:px-10 border-t-2 border-[#0D0A09]">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="mb-10">
+            <span className="text-[#B8892F] text-[0.7rem] font-bold tracking-[0.25em] uppercase block mb-2">What Clients Say</span>
+            <h2 style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', letterSpacing: '0.03em' }} className="text-[#F6F1E8]">
+              Trusted by Thousands
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-px bg-[rgba(255,255,255,0.05)]">
+            {testimonials.map((t, i) => (
+              <div key={i} className="bg-[#0D0A09] p-8 hover:bg-[#1A1210] transition-colors">
+                <div className="text-[#8B1E1C] text-2xl mb-4" aria-hidden>&ldquo;</div>
+                <p className="text-[rgba(246,241,232,0.7)] leading-relaxed mb-6 italic text-sm">{t.quote}</p>
+                <div className="border-t border-[rgba(255,255,255,0.06)] pt-4">
+                  <p className="font-extrabold text-[#F6F1E8] text-sm">{t.author}</p>
+                  <p className="text-[#B8892F] text-xs tracking-wide">{t.role}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
