@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { PageHero } from '@/components/page-hero'
 import { seo } from '@/content/site'
@@ -9,17 +10,21 @@ export const metadata: Metadata = {
   alternates: { canonical: '/gallery' },
 }
 
-// Confirmed Wix CDN image assets from the legacy site
 const galleryImages = [
-  {
-    src: 'https://static.wixstatic.com/media/095f80_b3f2e9a4c6c84f5b9e2a1d3e8f7c5a2b~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/trolley-dogs-event.jpg',
-    alt: 'Trolley Dogs food truck at a New England event',
-    fallback: true,
-  },
+  { src: '/images/new-truck.jpg', alt: 'Trolley Dogs food truck at a New England event' },
+  { src: '/images/td-hot-dog.jpg', alt: 'Trolley Dogs all-beef hot dog on a toasted sub roll' },
+  { src: '/images/event-2023.jpg', alt: 'Trolley Dogs catering a summer event in 2023' },
+  { src: '/images/green-trolley.jpg', alt: 'The original Trolley Dogs green trolley car' },
+  { src: '/images/td-fries.jpg', alt: 'Trolley Dogs crispy golden fries' },
+  { src: '/images/new-truck-1.jpg', alt: 'Trolley Dogs truck setup at an outdoor event' },
+  { src: '/images/hot-dog.jpg', alt: 'Classic Trolley Dogs all-beef hot dog' },
+  { src: '/images/td-lemonades.jpg', alt: 'Fresh-squeezed lemonades from Trolley Dogs' },
+  { src: '/images/td-dog-and-fry.jpg', alt: 'Trolley Dogs hot dog and fries combo' },
+  { src: '/images/white-truck.jpg', alt: 'Trolley Dogs white food truck at an event' },
+  { src: '/images/hot-dog-2.jpg', alt: 'Trolley Dogs signature all-beef hot dog with toppings' },
+  { src: '/images/lit-menu.jpg', alt: 'Trolley Dogs illuminated menu board' },
+  { src: '/images/event-2017.jpg', alt: 'Trolley Dogs serving a New England crowd in 2017' },
 ]
-
-// Placeholder grid items — real images will replace these once assets are confirmed
-const placeholderCount = 9
 
 export default function GalleryPage() {
   return (
@@ -33,57 +38,38 @@ export default function GalleryPage() {
       <section className="py-16 md:py-24 px-6 md:px-10 bg-white">
         <div className="max-w-[1280px] mx-auto">
 
-          {/* Notice for real images */}
-          <div className="bg-[#FBF7F0] border border-[rgba(0,0,0,0.06)] p-6 mb-12 flex items-start gap-4">
-            <span className="text-[#8B1E1C] text-lg">📸</span>
-            <div>
-              <p className="font-bold text-[#2D1A14] text-sm mb-1">Photos coming soon</p>
-              <p className="text-[#9C7B6B] text-sm">
-                We&apos;re polishing up the gallery with real Trolley Dogs photos. Check back soon — or follow us on social media for event photos in real time.
-              </p>
-            </div>
-          </div>
-
-          {/* Placeholder grid */}
+          {/* Photo grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
-            {Array.from({ length: placeholderCount }).map((_, i) => (
-              <div
-                key={i}
-                className="bg-[#F6F1E8] aspect-square flex items-center justify-center border border-[rgba(0,0,0,0.04)]"
-                style={{ minHeight: '200px' }}
-              >
-                <div className="text-center">
-                  <div
-                    className="text-[rgba(139,30,28,0.15)]"
-                    style={{ fontFamily: 'var(--font-bebas)', fontSize: '3rem' }}
-                  >
-                    TD
-                  </div>
-                  <p className="text-[#9C7B6B] text-xs">Photo {i + 1}</p>
-                </div>
+            {galleryImages.map((img, i) => (
+              <div key={i} className="relative aspect-square overflow-hidden bg-[#F6F1E8]">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
               </div>
             ))}
           </div>
 
-          {/* Social CTA */}
+          {/* Book CTA */}
           <div className="mt-16 bg-[#0D0A09] p-10 text-center">
             <h3
               className="text-[#F6F1E8] mb-3"
               style={{ fontFamily: 'var(--font-bebas)', fontSize: '2rem', letterSpacing: '0.03em' }}
             >
-              See Us Live on Social
+              Bring the Trolley to Your Event
             </h3>
             <p className="text-[rgba(246,241,232,0.5)] text-sm mb-8">
-              We post event photos, appearances, and behind-the-scenes content regularly.
+              4 trucks available across Greater Boston and New England. Every event is custom.
             </p>
-            <div className="flex justify-center gap-4 flex-wrap">
-              <Link
-                href="/book"
-                className="bg-[#8B1E1C] text-white px-8 py-3.5 font-extrabold text-sm tracking-wider uppercase hover:bg-[#6e1716] transition-colors"
-              >
-                Book Your Event
-              </Link>
-            </div>
+            <Link
+              href="/book"
+              className="bg-[#8B1E1C] text-white px-8 py-3.5 font-extrabold text-sm tracking-wider uppercase hover:bg-[#6e1716] transition-colors"
+            >
+              Book Your Event
+            </Link>
           </div>
         </div>
       </section>
