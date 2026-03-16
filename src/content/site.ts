@@ -10,8 +10,8 @@ export const siteConfig = {
   established: '1999',
   logo: 'https://static.wixstatic.com/media/095f80_a0d54b2c31c44e6fadd6dcdb62188192~mv2.png/v1/fill/w_180,h_190,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/095f80_a0d54b2c31c44e6fadd6dcdb62188192~mv2.png',
   social: {
-    instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || '#',
-    facebook: process.env.NEXT_PUBLIC_FACEBOOK_URL || '#',
+    instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/trolley_dogs/',
+    facebook: process.env.NEXT_PUBLIC_FACEBOOK_URL || 'https://www.facebook.com/BostonTrolleyDogs/',
   },
 }
 
@@ -59,59 +59,59 @@ export const services = [
 
 export const menuCategories = [
   {
-    name: 'Signature Hot Dogs',
-    description: 'Large all-beef dogs served on toasted sub rolls.',
+    name: 'Signature Dogs',
+    description: 'Gigantic · Hand Made · Natural Casing · All Beef · Served on a Toasted Sub Roll',
     items: [
-      { name: 'Classic All-Beef Dog', description: 'Our signature all-beef dog on a toasted sub roll. Dress it your way.' },
-      { name: 'Chicago Style', description: 'Yellow mustard, neon relish, tomato, sport peppers, pickles, celery salt. No ketchup.' },
-      { name: 'Chili Cheese Dog', description: 'House chili, shredded cheddar, diced white onion.' },
-      { name: 'BBQ Dog', description: 'Smoky BBQ sauce, crispy onion strings, coleslaw.' },
+      { name: 'The Original', description: 'Plain, or your way. Build your dog however you like.' },
+      { name: 'The Duke', description: 'Relish, diced onion, deli mustard.' },
+      { name: 'The Duchess', description: 'Our signature caramelized onion sauce.' },
+      { name: 'Chicago', description: 'Relish, diced onion, deli mustard, pickle, tomato, sport pepper.' },
+      { name: 'California', description: 'Our house chili and nacho cheese.' },
+      { name: 'New Yorker', description: 'Sauerkraut and deli mustard.' },
+      { name: 'Western', description: 'BBQ sauce, diced onion, nacho cheese.' },
+      { name: 'Tex-Mex', description: 'House salsa, diced onion, nacho cheese, jalapeño rings.' },
     ],
   },
   {
-    name: 'Specialty Dogs',
-    description: 'Bold flavors and creative builds.',
+    name: 'The Dog Bowl',
+    description: 'Any Trolley Dog, a different way.',
     items: [
-      { name: 'New England Dog', description: 'Cream cheese, cucumber, everything bagel seasoning.' },
-      { name: 'Bacon Cheese Dog', description: 'Crispy bacon, American cheese, deli mustard.' },
-      { name: 'Spicy Dog', description: 'Jalapeños, pepper jack, sriracha mayo, diced onion.' },
+      { name: 'Dog Bowl', description: 'Any Trolley Dog, chopped and served on a bed of golden fries. Topped with your choice of fixings. Same price as the dog.' },
+    ],
+  },
+  {
+    name: 'Chicken',
+    description: 'Crispy and satisfying.',
+    items: [
+      { name: "Duke's Chicken Sandwich", description: 'Tomato, pickle, diced onion, hot honey & Gigi\'s sauce.' },
+      { name: "Duke's Chicken Tenders", description: 'Served with your choice of buffalo, sweet & sour, or BBQ dipping sauce.' },
     ],
   },
   {
     name: 'Sides',
     description: 'The perfect addition to any dog.',
     items: [
-      { name: 'Classic Fries', description: 'Crispy golden fries, seasoned and served hot.' },
-      { name: 'Loaded Fries', description: 'Fries topped with chili, cheddar, sour cream, and scallions.' },
-      { name: 'Chili Cheese Fries', description: 'House chili and melted cheddar over a full order of fries.' },
-    ],
-  },
-  {
-    name: 'Chicken',
-    description: 'For those who prefer poultry.',
-    items: [
-      { name: 'Chicken Tenders', description: 'Crispy golden tenders served with your choice of dipping sauce.' },
-      { name: 'Chicken Sandwich', description: 'Crispy chicken breast, pickles, house sauce on a toasted bun.' },
+      { name: 'Golden Fries', description: 'Grade A potatoes, cooked to order and salted. Made in 100% canola oil.' },
+      { name: 'Specialty Fries', description: 'Choose from chili n\' cheese, nacho, or Western style.' },
     ],
   },
   {
     name: 'Drinks',
     description: 'Cold and refreshing.',
     items: [
-      { name: 'Fresh Lemonade', description: 'Fresh-squeezed lemonade. Seasonal flavors available.' },
-      { name: 'Bottled Water', description: 'Ice-cold bottled water.' },
-      { name: 'Canned Soda', description: 'Assorted sodas.' },
+      { name: 'Hand Crafted Lemonade', description: 'Fresh-squeezed. Available as Raspberry Rickey, Sea Breeze, or One Happy Island specialty blend.' },
+      { name: 'Bottled Water', description: 'Iced cold.' },
     ],
   },
 ]
 
 export const menuFeatured = [
-  menuCategories[0].items[0],
-  menuCategories[0].items[1],
-  menuCategories[0].items[2],
-  menuCategories[2].items[0],
-  menuCategories[3].items[0],
-  menuCategories[4].items[0],
+  menuCategories[0].items[0], // The Original
+  menuCategories[0].items[3], // Chicago
+  menuCategories[0].items[4], // California
+  menuCategories[3].items[0], // Golden Fries
+  menuCategories[2].items[0], // Duke's Chicken Sandwich
+  menuCategories[4].items[0], // Hand Crafted Lemonade
 ]
 
 export const testimonials = [

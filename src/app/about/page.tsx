@@ -32,17 +32,20 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-4 text-[#5C4638] leading-relaxed">
               <p>
-                Trolley Dogs was founded in 1999 with a simple idea: a refurbished replica of a late-1800s
-                horse-drawn trolley car, loaded with all-beef hot dogs, ready to serve a crowd.
+                Trolley Dogs was established in 1999, following the careful refurbishment of a 60-year-old
+                replica of a late-1800s horse-drawn trolley car. The vehicle sat for over a year as we
+                handpicked the perfect menu item to serve.
               </p>
               <p>
-                Inspired by a PBS program about the history of hot dogs in America, the original Trolley Dogs
-                was built around a single mission — serve the best all-beef hot dogs in Massachusetts, on a
-                toasted sub roll, with quality toppings, at events where people gather.
+                Inspired by a 1988 PBS documentary titled <em>A Hot Dog Program</em>, Trolley Dogs was born.
+                Following the spirit of that film, we offer beloved hot dogs from across the country — all
+                served on toasted sub rolls. We take pride in serving Pearl hot dogs, known for their
+                exceptional size and quality.
               </p>
               <p>
-                Over 25 years later, that mission hasn&apos;t changed. The operation has grown — 4 trucks,
-                5 to 7 days a week, thousands of events per year — but the hot dogs are still the same.
+                From classic ketchup and mustard to jalapeños and house chili, every dog is built your way.
+                Our staff are dedicated to providing attentive, welcoming service from the moment you step up
+                to our window. Over 25 years later, the mission hasn&apos;t changed.
               </p>
             </div>
           </div>
