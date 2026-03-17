@@ -46,6 +46,7 @@ export default function GalleryPage() {
                   src={img.src}
                   alt={img.alt}
                   fill
+                  priority={i < 2}
                   sizes="(max-width: 768px) 50vw, 33vw"
                   className="object-cover hover:scale-105 transition-transform duration-500"
                 />

@@ -80,7 +80,7 @@ export function Header() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div
-          style={{ position: 'fixed', inset: 0, zIndex: 40, background: 'var(--dark)', display: 'flex', flexDirection: 'column' as const, paddingTop: 80, paddingLeft: 32, paddingRight: 32 }}
+          style={{ position: 'fixed', inset: 0, zIndex: 60, background: 'var(--dark)', display: 'flex', flexDirection: 'column' as const, paddingTop: 80, paddingLeft: 32, paddingRight: 32 }}
           onClick={() => setMobileOpen(false)}
         >
           <ul style={{ listStyle: 'none', borderTop: '1px solid rgba(251,245,232,0.08)', padding: 0, margin: 0 }}>

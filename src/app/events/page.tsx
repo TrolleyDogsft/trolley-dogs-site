@@ -54,7 +54,7 @@ export default async function EventsPage() {
                         <p className="text-[#9C7B6B] text-sm mb-1">{full}</p>
                         {event.location && (
                           <p className="text-[#5C4638] text-sm flex items-center gap-1.5">
-                            <span className="text-[#8B1E1C]">📍</span> {event.location}
+                            <span className="text-[#8B1E1C] font-bold">&rsaquo;</span> {event.location}
                           </p>
                         )}
                         {event.description && (

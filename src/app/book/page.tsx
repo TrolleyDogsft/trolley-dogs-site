@@ -59,7 +59,7 @@ export default function BookPage() {
                 href={`mailto:${siteConfig.bookingEmail}`}
                 className="text-[#9C7B6B] text-sm hover:text-[#5C4638] transition-colors"
               >
-                {siteConfig.email}
+                {siteConfig.bookingEmail}
               </a>
             </div>
 
