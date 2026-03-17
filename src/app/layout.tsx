@@ -3,6 +3,7 @@ import { Lobster, Oswald, Nunito_Sans } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import { NewsletterPopup } from '@/components/newsletter-popup'
 import { siteConfig, seo } from '@/content/site'
 
 const lobster = Lobster({
@@ -57,6 +58,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <NewsletterPopup />
       </body>
     </html>
   )
