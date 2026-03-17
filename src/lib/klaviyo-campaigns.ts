@@ -39,16 +39,14 @@ export async function sendWeeklyDigest(html: string, subject: string): Promise<v
               {
                 type: 'campaign-message',
                 attributes: {
-                  definition: {
-                    channel: 'email',
-                    content: {
-                      subject,
-                      preview_text: '',
-                      from_email: FROM_EMAIL,
-                      from_label: 'Trolley Dogs',
-                      reply_to_email: FROM_EMAIL,
-                      body: html,
-                    },
+                  channel: 'email',
+                  content: {
+                    subject,
+                    preview_text: '',
+                    from_email: FROM_EMAIL,
+                    from_label: 'Trolley Dogs',
+                    reply_to_email: FROM_EMAIL,
+                    body: html,
                   },
                 },
               },
