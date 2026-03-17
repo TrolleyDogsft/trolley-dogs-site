@@ -2,9 +2,12 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getUpcomingEvents } from '@/lib/calendar'
 import { generateNewsletterContent } from '@/lib/claude'
 import { buildWeeklyDigestHTML } from '@/lib/email-template'
-import { sendWeeklyDigest } from '@/lib/mailchimp-campaigns'
+import { sendWeeklyDigest } from '@/lib/klaviyo-campaigns'
 
 export const dynamic = 'force-dynamic'
+
+// Show events within the next 14 days — enough to be useful, not overwhelming
+const TWO_WEEKS_MS = 14 * 24 * 60 * 60 * 1000
 
 export async function GET(req: NextRequest) {
   const secret = req.nextUrl.searchParams.get('secret')
@@ -14,10 +17,12 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const events = await getUpcomingEvents()
+    const allEvents = await getUpcomingEvents()
+    const cutoff = new Date(Date.now() + TWO_WEEKS_MS)
+    const events = allEvents.filter((e) => e.start <= cutoff)
 
     if (events.length === 0) {
-      return NextResponse.json({ status: 'skipped', reason: 'no upcoming events' })
+      return NextResponse.json({ status: 'skipped', reason: 'no upcoming events in next 14 days' })
     }
 
     const { intro, subject } = await generateNewsletterContent(events)

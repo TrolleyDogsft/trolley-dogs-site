@@ -41,7 +41,7 @@ The site's only job: **get people to fill out the booking form**.
 - **Color palette:** --red #C0311B, --cream #FBF5E8, --gold #F0C040, --dark #1C0F08
 - **Email:** Resend (booking form sends real emails)
 - **Newsletter:** Mailchimp (not yet connected — needs API key)
-- **Events calendar:** Google Calendar ICS (not yet connected — needs calendar URL)
+- **Events calendar:** Google Calendar ICS (connected and working)
 - **Deployment:** Vercel, auto-deploys on GitHub push
 
 ---
@@ -153,7 +153,7 @@ These are set in the Vercel dashboard. Never put these in code or commit them to
 | MAILCHIMP_API_KEY | Newsletter | ❌ Not added yet |
 | MAILCHIMP_AUDIENCE_ID | e93fb94dc5 | ✅ Set |
 | MAILCHIMP_SERVER_PREFIX | us12 | ✅ Set |
-| GOOGLE_CALENDAR_ICAL_URL | Events page | ❌ Not added yet |
+| GOOGLE_CALENDAR_ICAL_URL | Events page | ✅ Working |
 
 ---
 
