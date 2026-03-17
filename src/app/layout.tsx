@@ -1,20 +1,26 @@
 import type { Metadata } from 'next'
-import { Bebas_Neue, Manrope } from 'next/font/google'
+import { Lobster, Oswald, Nunito_Sans } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { siteConfig, seo } from '@/content/site'
 
-const bebasNeue = Bebas_Neue({
+const lobster = Lobster({
   weight: '400',
   subsets: ['latin'],
-  variable: '--font-bebas',
+  variable: '--font-brand',
   display: 'swap',
 })
 
-const manrope = Manrope({
+const oswald = Oswald({
   subsets: ['latin'],
-  variable: '--font-manrope',
+  variable: '--font-head',
+  display: 'swap',
+})
+
+const nunitoSans = Nunito_Sans({
+  subsets: ['latin'],
+  variable: '--font-body',
   display: 'swap',
 })
 
@@ -46,8 +52,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${bebasNeue.variable} ${manrope.variable}`}>
-      <body className="antialiased" style={{ fontFamily: 'var(--font-manrope), sans-serif', backgroundColor: 'white', color: '#2D1A14' }}>
+    <html lang="en" className={`${lobster.variable} ${oswald.variable} ${nunitoSans.variable}`}>
+      <body className="antialiased" style={{ fontFamily: 'var(--font-body), sans-serif', backgroundColor: '#FBF5E8', color: '#1C0F08' }}>
         <Header />
         <main>{children}</main>
         <Footer />

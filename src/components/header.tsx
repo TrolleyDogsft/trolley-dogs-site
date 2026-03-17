@@ -10,41 +10,40 @@ export function Header() {
 
   return (
     <>
-      {/* Top bar */}
-      <div className="bg-[#0D0A09] text-[rgba(246,241,232,0.5)] text-[0.7rem] font-semibold tracking-[0.1em] uppercase hidden md:flex items-center justify-between px-8 py-2">
-        <span>Greater Boston · MetroWest · Central MA · New England</span>
-        <span className="flex gap-4">
-          <a href={`tel:${siteConfig.phone.replace(/-/g, '')}`} className="text-[#FFD76F] hover:text-white transition-colors">
-            {siteConfig.phone}
-          </a>
-          <span>·</span>
-          <a href={`mailto:${siteConfig.email}`} className="hover:text-[#FFD76F] transition-colors">
-            {siteConfig.email}
-          </a>
-        </span>
+      {/* Red topbar */}
+      <div style={{ background: 'var(--red)', borderBottom: '2px solid var(--red-dk)', padding: '9px 24px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24, fontFamily: 'var(--font-head)', fontSize: '0.7rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: 'rgba(251,245,232,0.85)' }}>
+        <span className="hidden sm:inline">Northeast&rsquo;s #1 Food Truck Since 1999</span>
+        <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'rgba(251,245,232,0.4)', display: 'inline-block' }} />
+        <a href={`tel:${siteConfig.phone.replace(/-/g, '')}`} style={{ color: 'var(--gold)', textDecoration: 'none' }}>{siteConfig.phone}</a>
+        <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'rgba(251,245,232,0.4)', display: 'inline-block' }} />
+        <a href={`mailto:${siteConfig.email}`} style={{ color: 'rgba(251,245,232,0.75)', textDecoration: 'none' }} className="hidden sm:inline">{siteConfig.email}</a>
       </div>
 
       {/* Main nav */}
-      <nav className="sticky top-0 z-50 flex items-center justify-between bg-white border-b-2 border-[#0D0A09]">
-        {/* Logo */}
-        <Link href="/" className="flex items-center px-4 md:px-6 py-3 border-r-2 border-[#0D0A09]">
+      <nav style={{ position: 'sticky', top: 0, zIndex: 50, background: 'var(--dark)', borderBottom: '3px solid var(--gold)', display: 'flex', alignItems: 'stretch', height: 64 }}>
+        {/* Brand */}
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '0 24px', borderRight: '1px solid rgba(251,245,232,0.08)', flexShrink: 0, textDecoration: 'none' }}>
           <Image
-            src={siteConfig.logo}
+            src="/logo-bw.jpg"
             alt="Trolley Dogs"
-            width={44}
-            height={46}
-            className="h-11 w-auto"
+            width={38}
+            height={38}
             priority
+            style={{ borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--gold)' }}
           />
+          <span style={{ fontFamily: 'var(--font-brand)', fontSize: '1.5rem', color: 'var(--cream)', letterSpacing: '0.02em', lineHeight: 1 }}>
+            Trolley Dogs
+          </span>
         </Link>
 
-        {/* Desktop nav links */}
-        <ul className="hidden md:flex list-none">
+        {/* Desktop nav */}
+        <ul className="hidden md:flex list-none flex-1" style={{ height: '100%', margin: 0, padding: 0 }}>
           {navLinks.map((link) => (
-            <li key={link.href} className="border-r border-[rgba(0,0,0,0.08)]">
+            <li key={link.href} style={{ height: '100%', listStyle: 'none' }}>
               <Link
                 href={link.href}
-                className="block px-5 py-[1.1rem] text-[#0D0A09] text-[0.78rem] font-bold tracking-[0.1em] uppercase hover:bg-[#0D0A09] hover:text-white transition-colors duration-150"
+                className="group"
+                style={{ display: 'flex', alignItems: 'center', height: '100%', padding: '0 18px', fontFamily: 'var(--font-head)', fontSize: '0.78rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: 'rgba(251,245,232,0.6)', borderRight: '1px solid rgba(251,245,232,0.06)', textDecoration: 'none', transition: 'color 0.15s' }}
               >
                 {link.label}
               </Link>
@@ -52,57 +51,55 @@ export function Header() {
           ))}
         </ul>
 
-        {/* CTA */}
+        {/* CTA button */}
         <Link
           href="/book"
-          className="hidden md:inline-block bg-[#8B1E1C] text-white px-6 py-[1.1rem] text-[0.78rem] font-extrabold tracking-[0.12em] uppercase border-l-2 border-[#0D0A09] hover:bg-[#6e1716] transition-colors duration-150"
+          className="hidden md:flex items-center"
+          style={{ padding: '0 28px', fontFamily: 'var(--font-head)', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' as const, background: 'var(--red)', color: 'var(--cream)', borderLeft: '1px solid rgba(251,245,232,0.07)', flexShrink: 0, textDecoration: 'none', transition: 'background 0.15s' }}
         >
           Catering &amp; Booking
         </Link>
 
-        {/* Mobile: phone + hamburger */}
-        <div className="flex items-center gap-3 px-4 md:hidden">
-          <a href={`tel:${siteConfig.phone.replace(/-/g, '')}`} className="text-[#8B1E1C] font-bold text-sm">
+        {/* Mobile: call + hamburger */}
+        <div className="flex items-center gap-3 px-4 md:hidden ml-auto">
+          <a href={`tel:${siteConfig.phone.replace(/-/g, '')}`} style={{ color: 'var(--gold)', fontFamily: 'var(--font-head)', fontWeight: 700, fontSize: '0.82rem', textDecoration: 'none' }}>
             Call
           </a>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
-            className="flex flex-col gap-[5px] p-1"
+            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, display: 'flex', flexDirection: 'column' as const, gap: 5 }}
           >
-            <span className={`block w-6 h-0.5 bg-[#0D0A09] transition-transform duration-200 ${mobileOpen ? 'translate-y-[7px] rotate-45' : ''}`} />
-            <span className={`block w-6 h-0.5 bg-[#0D0A09] transition-opacity duration-200 ${mobileOpen ? 'opacity-0' : ''}`} />
-            <span className={`block w-6 h-0.5 bg-[#0D0A09] transition-transform duration-200 ${mobileOpen ? '-translate-y-[7px] -rotate-45' : ''}`} />
+            <span className={`block w-5 h-0.5 bg-[#FBF5E8] transition-transform duration-200 ${mobileOpen ? 'translate-y-[7px] rotate-45' : ''}`} />
+            <span className={`block w-5 h-0.5 bg-[#FBF5E8] transition-opacity duration-200 ${mobileOpen ? 'opacity-0' : ''}`} />
+            <span className={`block w-5 h-0.5 bg-[#FBF5E8] transition-transform duration-200 ${mobileOpen ? '-translate-y-[7px] -rotate-45' : ''}`} />
           </button>
         </div>
       </nav>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-[#0D0A09] flex flex-col pt-20 px-6" onClick={() => setMobileOpen(false)}>
-          <ul className="flex flex-col border-t border-[rgba(255,255,255,0.08)]">
+        <div
+          style={{ position: 'fixed', inset: 0, zIndex: 40, background: 'var(--dark)', display: 'flex', flexDirection: 'column' as const, paddingTop: 80, paddingLeft: 32, paddingRight: 32 }}
+          onClick={() => setMobileOpen(false)}
+        >
+          <ul style={{ listStyle: 'none', borderTop: '1px solid rgba(251,245,232,0.08)', padding: 0, margin: 0 }}>
             {navLinks.map((link) => (
-              <li key={link.href} className="border-b border-[rgba(255,255,255,0.08)]">
-                <Link
-                  href={link.href}
-                  className="block py-4 text-white text-xl font-bold tracking-wide uppercase"
-                >
+              <li key={link.href} style={{ borderBottom: '1px solid rgba(251,245,232,0.08)' }}>
+                <Link href={link.href} style={{ display: 'block', padding: '18px 0', fontFamily: 'var(--font-head)', fontSize: '1.4rem', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase' as const, color: 'var(--cream)', textDecoration: 'none' }}>
                   {link.label}
                 </Link>
               </li>
             ))}
-            <li className="pt-6">
-              <Link
-                href="/book"
-                className="block bg-[#8B1E1C] text-white text-center py-4 font-extrabold tracking-wider uppercase text-lg"
-              >
+            <li style={{ paddingTop: 24 }}>
+              <Link href="/book" style={{ display: 'block', background: 'var(--red)', color: 'var(--cream)', textAlign: 'center' as const, padding: '16px 0', fontFamily: 'var(--font-head)', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' as const, fontSize: '1rem', textDecoration: 'none' }}>
                 Catering &amp; Booking
               </Link>
             </li>
           </ul>
-          <div className="mt-8 space-y-2">
-            <a href={`tel:${siteConfig.phone.replace(/-/g, '')}`} className="block text-[#FFD76F] font-bold text-lg">{siteConfig.phone}</a>
-            <a href={`mailto:${siteConfig.email}`} className="block text-[rgba(246,241,232,0.5)] text-sm">{siteConfig.email}</a>
+          <div style={{ marginTop: 32 }}>
+            <a href={`tel:${siteConfig.phone.replace(/-/g, '')}`} style={{ display: 'block', color: 'var(--gold)', fontFamily: 'var(--font-head)', fontWeight: 700, fontSize: '1.1rem', marginBottom: 8, textDecoration: 'none' }}>{siteConfig.phone}</a>
+            <a href={`mailto:${siteConfig.email}`} style={{ display: 'block', color: 'rgba(251,245,232,0.45)', fontSize: '0.85rem', textDecoration: 'none' }}>{siteConfig.email}</a>
           </div>
         </div>
       )}

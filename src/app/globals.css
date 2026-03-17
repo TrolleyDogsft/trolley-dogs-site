@@ -1,13 +1,22 @@
 @import "tailwindcss";
 
-* {
-  box-sizing: border-box;
+:root {
+  --red:     #C0311B;
+  --red-dk:  #9A2414;
+  --cream:   #FBF5E8;
+  --cream2:  #F2E9D4;
+  --gold:    #F0C040;
+  --gold-dk: #C89A10;
+  --dark:    #1C0F08;
+  --dark2:   #2E1A0E;
+  --gray:    #6B5B4E;
 }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
   -webkit-font-smoothing: antialiased;
-}
-
-html {
-  scroll-behavior: smooth;
+  overflow-x: hidden;
 }

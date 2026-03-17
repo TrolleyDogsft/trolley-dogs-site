@@ -4,94 +4,93 @@ import { siteConfig, navLinks } from '@/content/site'
 
 export function Footer() {
   return (
-    <footer className="bg-[#0D0A09] border-t-2 border-[#8B1E1C]">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-10 flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
-        {/* Logo */}
-        <div className="flex flex-col items-center md:items-start gap-3">
-          <Image
-            src={siteConfig.logo}
-            alt="Trolley Dogs"
-            width={48}
-            height={50}
-            className="h-12 w-auto opacity-70"
-          />
-          <p className="text-[rgba(246,241,232,0.3)] text-xs">Est. {siteConfig.established}</p>
+    <footer style={{ background: 'var(--dark)', borderTop: '3px solid var(--gold)' }}>
+      <div className="max-w-[1280px] mx-auto px-8 pt-14 pb-10 grid grid-cols-1 md:grid-cols-4 gap-10">
+
+        {/* Brand */}
+        <div className="md:col-span-2">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+            <Image
+              src="/logo-bw.jpg"
+              alt="Trolley Dogs"
+              width={44}
+              height={44}
+              style={{ borderRadius: '50%', border: '2px solid var(--gold)', objectFit: 'cover' }}
+            />
+            <span style={{ fontFamily: 'var(--font-brand)', fontSize: '1.4rem', color: 'var(--cream)', letterSpacing: '0.02em' }}>
+              Trolley Dogs
+            </span>
+          </div>
+          <p style={{ color: 'rgba(251,245,232,0.45)', fontSize: '0.82rem', lineHeight: 1.75, maxWidth: 300, marginBottom: 20 }}>
+            Northeast&rsquo;s largest food truck catering company. Serving Greater Boston, MetroWest, Central MA, and all of New England since 1999.
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column' as const, gap: 6 }}>
+            <a
+              href={`tel:${siteConfig.phone.replace(/-/g, '')}`}
+              style={{ color: 'var(--gold)', fontFamily: 'var(--font-head)', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none', letterSpacing: '0.05em' }}
+            >
+              {siteConfig.phone}
+            </a>
+            <a
+              href={`mailto:${siteConfig.email}`}
+              style={{ color: 'rgba(251,245,232,0.4)', fontSize: '0.82rem', textDecoration: 'none' }}
+            >
+              {siteConfig.email}
+            </a>
+          </div>
         </div>
 
-        {/* Nav links */}
-        <nav aria-label="Footer navigation">
-          <ul className="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2">
+        {/* Navigate */}
+        <div>
+          <h4 style={{ fontFamily: 'var(--font-head)', fontSize: '0.68rem', fontWeight: 500, letterSpacing: '0.2em', textTransform: 'uppercase' as const, color: 'rgba(251,245,232,0.3)', marginBottom: 16 }}>
+            Navigate
+          </h4>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column' as const, gap: 10 }}>
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-[rgba(246,241,232,0.35)] hover:text-[#FFD76F] text-[0.72rem] font-bold tracking-[0.1em] uppercase transition-colors"
+                  style={{ color: 'rgba(251,245,232,0.55)', fontSize: '0.85rem', textDecoration: 'none', fontFamily: 'var(--font-head)', letterSpacing: '0.06em' }}
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
-            <li>
-              <Link
-                href="/book"
-                className="text-[rgba(246,241,232,0.35)] hover:text-[#FFD76F] text-[0.72rem] font-bold tracking-[0.1em] uppercase transition-colors"
-              >
-                Book
-              </Link>
-            </li>
           </ul>
-        </nav>
-
-        {/* Contact + Social */}
-        <div className="text-center md:text-right space-y-1">
-          <a
-            href={`tel:${siteConfig.phone.replace(/-/g, '')}`}
-            className="block text-[#FFD76F] font-bold text-base hover:text-white transition-colors"
-          >
-            {siteConfig.phone}
-          </a>
-          <a
-            href={`mailto:${siteConfig.email}`}
-            className="block text-[rgba(246,241,232,0.45)] text-sm hover:text-[#FFD76F] transition-colors"
-          >
-            {siteConfig.email}
-          </a>
-          <p className="text-[rgba(246,241,232,0.25)] text-xs pt-1">
-            Greater Boston &amp; New England
-          </p>
-          {(siteConfig.social.instagram !== '#' || siteConfig.social.facebook !== '#') && (
-            <div className="flex justify-center md:justify-end gap-4 pt-3">
-              {siteConfig.social.instagram !== '#' && (
-                <a
-                  href={siteConfig.social.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[rgba(246,241,232,0.35)] hover:text-[#FFD76F] text-[0.7rem] font-bold tracking-[0.1em] uppercase transition-colors"
-                >
-                  Instagram
-                </a>
-              )}
-              {siteConfig.social.facebook !== '#' && (
-                <a
-                  href={siteConfig.social.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[rgba(246,241,232,0.35)] hover:text-[#FFD76F] text-[0.7rem] font-bold tracking-[0.1em] uppercase transition-colors"
-                >
-                  Facebook
-                </a>
-              )}
-            </div>
-          )}
         </div>
+
+        {/* Catering */}
+        <div>
+          <h4 style={{ fontFamily: 'var(--font-head)', fontSize: '0.68rem', fontWeight: 500, letterSpacing: '0.2em', textTransform: 'uppercase' as const, color: 'rgba(251,245,232,0.3)', marginBottom: 16 }}>
+            Catering
+          </h4>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column' as const, gap: 10 }}>
+            {['Get a Quote', 'Corporate Events', 'Private Parties', 'Film & TV', 'Festivals'].map((label) => (
+              <li key={label}>
+                <Link
+                  href="/book"
+                  style={{ color: 'rgba(251,245,232,0.55)', fontSize: '0.85rem', textDecoration: 'none', fontFamily: 'var(--font-head)', letterSpacing: '0.06em' }}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-[rgba(255,255,255,0.05)] px-6 md:px-10 py-4 flex flex-col md:flex-row items-center justify-between gap-2">
-        <p className="text-[rgba(246,241,232,0.2)] text-xs">
-          © {new Date().getFullYear()} {siteConfig.name} · {siteConfig.serviceArea}
-        </p>
-        <p className="text-[rgba(246,241,232,0.15)] text-xs">trolleydogsft.com</p>
+      <div
+        className="flex flex-col sm:flex-row items-center justify-between gap-2 px-8 py-4"
+        style={{ borderTop: '1px solid rgba(251,245,232,0.06)' }}
+      >
+        <span style={{ color: 'rgba(251,245,232,0.22)', fontSize: '0.75rem' }}>
+          &copy; {new Date().getFullYear()} Trolley Dogs. All rights reserved.
+        </span>
+        <span style={{ color: 'rgba(251,245,232,0.15)', fontSize: '0.75rem' }}>
+          Boston, MA &middot; trolleydogsft.com
+        </span>
       </div>
     </footer>
   )
