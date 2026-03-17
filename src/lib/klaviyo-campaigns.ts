@@ -23,7 +23,7 @@ export async function sendWeeklyDigest(html: string, subject: string): Promise<v
     year: 'numeric',
   })}`
 
-  // Step 1: Create campaign
+  // Step 1: Create campaign with message content included
   const createRes = await fetch(`${BASE_URL}/campaigns/`, {
     method: 'POST',
     headers: headers(),
@@ -34,6 +34,19 @@ export async function sendWeeklyDigest(html: string, subject: string): Promise<v
           name: campaignName,
           audiences: { included: [LIST_ID] },
           send_strategy: { method: 'immediate' },
+          'campaign-messages': [
+            {
+              channel: 'email',
+              content: {
+                subject,
+                preview_text: '',
+                from_email: FROM_EMAIL,
+                from_name: 'Trolley Dogs',
+                reply_to_email: FROM_EMAIL,
+                body: html,
+              },
+            },
+          ],
         },
       },
     }),
@@ -47,42 +60,7 @@ export async function sendWeeklyDigest(html: string, subject: string): Promise<v
   const campaignData = await createRes.json()
   const campaignId: string = campaignData.data.id
 
-  // The campaign message ID comes back in the relationships
-  const messageId: string =
-    campaignData.data.relationships?.['campaign-messages']?.data?.[0]?.id
-
-  if (!messageId) {
-    throw new Error('Klaviyo campaign created but no message ID returned')
-  }
-
-  // Step 2: Set HTML content and subject on the campaign message
-  const contentRes = await fetch(`${BASE_URL}/campaign-messages/${messageId}/`, {
-    method: 'PATCH',
-    headers: headers(),
-    body: JSON.stringify({
-      data: {
-        type: 'campaign-message',
-        id: messageId,
-        attributes: {
-          content: {
-            subject,
-            preview_text: '',
-            from_email: FROM_EMAIL,
-            from_name: 'Trolley Dogs',
-            reply_to_email: FROM_EMAIL,
-            body: html,
-          },
-        },
-      },
-    }),
-  })
-
-  if (!contentRes.ok) {
-    const err = await contentRes.text()
-    throw new Error(`Klaviyo set content failed: ${err}`)
-  }
-
-  // Step 3: Send
+  // Step 2: Send
   const sendRes = await fetch(`${BASE_URL}/campaign-send-jobs/`, {
     method: 'POST',
     headers: headers(),
