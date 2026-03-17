@@ -2,7 +2,7 @@ const API_KEY = process.env.KLAVIYO_PRIVATE_KEY ?? ''
 const LIST_ID = process.env.KLAVIYO_LIST_ID ?? ''
 const BASE_URL = 'https://a.klaviyo.com/api'
 const REVISION = '2024-10-15'
-const FROM_EMAIL = process.env.NEXT_PUBLIC_BUSINESS_EMAIL || 'hello@trolleydogsft.com'
+const FROM_EMAIL = process.env.KLAVIYO_FROM_EMAIL || 'info@trolleydogsft.com'
 
 function headers() {
   return {
