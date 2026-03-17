@@ -32,7 +32,6 @@ export async function sendWeeklyDigest(html: string, subject: string): Promise<v
         type: 'campaign',
         attributes: {
           name: campaignName,
-          channel: 'email',
           audiences: { included: [LIST_ID] },
           send_strategy: { method: 'immediate' },
         },
