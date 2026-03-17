@@ -62,8 +62,12 @@ export async function getUpcomingEvents(limit?: number): Promise<CalendarEvent[]
       const dtend = getValue('DTEND') || lines.find(l => l.startsWith('DTEND'))?.split(':')[1]?.trim()
       const location = getValue('LOCATION')
       const description = getValue('DESCRIPTION')
+      const classification = getValue('CLASS')
 
       if (!summary || !dtstart) continue
+
+      // Skip private events — only show public appearances on the website
+      if (classification === 'PRIVATE') continue
 
       const start = parseICSDate(dtstart)
       const end = dtend ? parseICSDate(dtend) : null
