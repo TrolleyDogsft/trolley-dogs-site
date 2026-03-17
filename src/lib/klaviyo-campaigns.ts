@@ -23,7 +23,32 @@ export async function sendWeeklyDigest(html: string, subject: string): Promise<v
     year: 'numeric',
   })}`
 
-  // Step 1: Create campaign with message content included
+  // Step 1: Create a template with the HTML content
+  const templateRes = await fetch(`${BASE_URL}/templates/`, {
+    method: 'POST',
+    headers: headers(),
+    body: JSON.stringify({
+      data: {
+        type: 'template',
+        attributes: {
+          name: campaignName,
+          editor_type: 'CODE',
+          html,
+          text: 'View this email in your browser.',
+        },
+      },
+    }),
+  })
+
+  if (!templateRes.ok) {
+    const err = await templateRes.text()
+    throw new Error(`Klaviyo create template failed: ${err}`)
+  }
+
+  const templateData = await templateRes.json()
+  const templateId: string = templateData.data.id
+
+  // Step 2: Create the campaign
   const createRes = await fetch(`${BASE_URL}/campaigns/`, {
     method: 'POST',
     headers: headers(),
@@ -46,7 +71,6 @@ export async function sendWeeklyDigest(html: string, subject: string): Promise<v
                     from_email: FROM_EMAIL,
                     from_label: 'Trolley Dogs',
                     reply_to_email: FROM_EMAIL,
-                    body: html,
                   },
                 },
               },
@@ -64,8 +88,36 @@ export async function sendWeeklyDigest(html: string, subject: string): Promise<v
 
   const campaignData = await createRes.json()
   const campaignId: string = campaignData.data.id
+  const messageId: string =
+    campaignData.data.relationships?.['campaign-messages']?.data?.[0]?.id
 
-  // Step 2: Send
+  if (!messageId) {
+    throw new Error('Klaviyo campaign created but no message ID returned')
+  }
+
+  // Step 3: Assign the template to the campaign message
+  const assignRes = await fetch(`${BASE_URL}/campaign-message-assign-template/`, {
+    method: 'POST',
+    headers: headers(),
+    body: JSON.stringify({
+      data: {
+        type: 'campaign-message',
+        id: messageId,
+        relationships: {
+          template: {
+            data: { type: 'template', id: templateId },
+          },
+        },
+      },
+    }),
+  })
+
+  if (!assignRes.ok) {
+    const err = await assignRes.text()
+    throw new Error(`Klaviyo assign template failed: ${err}`)
+  }
+
+  // Step 4: Send
   const sendRes = await fetch(`${BASE_URL}/campaign-send-jobs/`, {
     method: 'POST',
     headers: headers(),
