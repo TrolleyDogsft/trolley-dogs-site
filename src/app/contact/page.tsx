@@ -26,7 +26,7 @@ export default function ContactPage() {
             <div>
               <h2
                 className="text-[#0D0A09] mb-6"
-                style={{ fontFamily: 'var(--font-bebas)', fontSize: '2rem', letterSpacing: '0.03em' }}
+                style={{ fontFamily: 'var(--font-head)', fontSize: '2rem', letterSpacing: '0.03em' }}
               >
                 Reach Us Directly
               </h2>
@@ -69,7 +69,7 @@ export default function ContactPage() {
           <div>
             <h3
               className="text-[#0D0A09] mb-6"
-              style={{ fontFamily: 'var(--font-bebas)', fontSize: '1.6rem', letterSpacing: '0.03em' }}
+              style={{ fontFamily: 'var(--font-head)', fontSize: '1.6rem', letterSpacing: '0.03em' }}
             >
               Send a Message
             </h3>

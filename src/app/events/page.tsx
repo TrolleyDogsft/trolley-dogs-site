@@ -41,7 +41,7 @@ export default async function EventsPage() {
                       <div className="text-center min-w-[60px]">
                         <div className="text-[#8B1E1C] text-[0.65rem] font-bold tracking-[0.15em] uppercase">{month}</div>
                         <div
-                          style={{ fontFamily: 'var(--font-bebas)', fontSize: '2.8rem', lineHeight: 1 }}
+                          style={{ fontFamily: 'var(--font-head)', fontSize: '2.8rem', lineHeight: 1 }}
                           className="text-[#0D0A09]"
                         >
                           {day}
@@ -95,7 +95,7 @@ export default async function EventsPage() {
             <div>
               <h3
                 className="text-[#F6F1E8] mb-2"
-                style={{ fontFamily: 'var(--font-bebas)', fontSize: '2rem', letterSpacing: '0.03em' }}
+                style={{ fontFamily: 'var(--font-head)', fontSize: '2rem', letterSpacing: '0.03em' }}
               >
                 Want the Trolley at Your Event?
               </h3>

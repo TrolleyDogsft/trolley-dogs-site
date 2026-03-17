@@ -27,7 +27,7 @@ export default function MenuPage() {
                 <div className="flex items-baseline gap-4">
                   <h2
                     className="text-[#0D0A09]"
-                    style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', letterSpacing: '0.03em' }}
+                    style={{ fontFamily: 'var(--font-head)', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', letterSpacing: '0.03em' }}
                   >
                     {category.name}
                   </h2>
@@ -57,7 +57,7 @@ export default function MenuPage() {
             <div>
               <h3
                 className="text-[#0D0A09] mb-2"
-                style={{ fontFamily: 'var(--font-bebas)', fontSize: '1.6rem', letterSpacing: '0.03em' }}
+                style={{ fontFamily: 'var(--font-head)', fontSize: '1.6rem', letterSpacing: '0.03em' }}
               >
                 Event Pricing is Always Custom
               </h3>

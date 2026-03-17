@@ -17,7 +17,7 @@ export function PageHero({ eyebrow, title, subtitle }: PageHeroProps) {
         <h1
           className="text-[#F6F1E8] leading-none tracking-wide"
           style={{
-            fontFamily: 'var(--font-bebas), sans-serif',
+            fontFamily: 'var(--font-head), sans-serif',
             fontSize: 'clamp(3rem, 8vw, 6rem)',
             letterSpacing: '0.02em',
           }}

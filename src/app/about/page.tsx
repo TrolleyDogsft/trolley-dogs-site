@@ -26,7 +26,7 @@ export default function AboutPage() {
             <span className="text-[#8B1E1C] text-[0.7rem] font-bold tracking-[0.25em] uppercase block mb-3">Since 1999</span>
             <h2
               className="text-[#0D0A09] mb-6"
-              style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '0.02em' }}
+              style={{ fontFamily: 'var(--font-head)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '0.02em' }}
             >
               It Started With a Trolley
             </h2>
@@ -75,7 +75,7 @@ export default function AboutPage() {
               { value: '25+', label: 'Years in Business' },
             ].map((s, i) => (
               <div key={i} className="bg-[#0D0A09] py-10 text-center">
-                <div style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(3rem, 6vw, 4.5rem)', lineHeight: 1 }} className="text-[#8B1E1C]">{s.value}</div>
+                <div style={{ fontFamily: 'var(--font-head)', fontSize: 'clamp(3rem, 6vw, 4.5rem)', lineHeight: 1 }} className="text-[#8B1E1C]">{s.value}</div>
                 <div className="text-[rgba(246,241,232,0.45)] text-[0.7rem] font-bold tracking-[0.15em] uppercase mt-2">{s.label}</div>
               </div>
             ))}
@@ -89,7 +89,7 @@ export default function AboutPage() {
           <span className="text-[#8B1E1C] text-[0.7rem] font-bold tracking-[0.25em] uppercase block mb-3">Who We&apos;ve Served</span>
           <h2
             className="text-[#0D0A09] mb-10"
-            style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', letterSpacing: '0.02em' }}
+            style={{ fontFamily: 'var(--font-head)', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', letterSpacing: '0.02em' }}
           >
             From Film Sets to Sold-Out Venues
           </h2>
@@ -115,7 +115,7 @@ export default function AboutPage() {
           <span className="text-[#8B1E1C] text-[0.7rem] font-bold tracking-[0.25em] uppercase block mb-3">What People Say</span>
           <h2
             className="text-[#0D0A09] mb-10"
-            style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '0.02em' }}
+            style={{ fontFamily: 'var(--font-head)', fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '0.02em' }}
           >
             From Our Clients
           </h2>
@@ -137,7 +137,7 @@ export default function AboutPage() {
       <section className="bg-[#8B1E1C] py-16 px-6 md:px-10 text-center">
         <h2
           className="text-white mb-4"
-          style={{ fontFamily: 'var(--font-bebas)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '0.03em' }}
+          style={{ fontFamily: 'var(--font-head)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '0.03em' }}
         >
           Serving All of New England
         </h2>

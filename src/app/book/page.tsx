@@ -26,7 +26,7 @@ export default function BookPage() {
             <div>
               <h2
                 className="text-[#0D0A09] mb-4"
-                style={{ fontFamily: 'var(--font-bebas)', fontSize: '1.8rem', letterSpacing: '0.03em' }}
+                style={{ fontFamily: 'var(--font-head)', fontSize: '1.8rem', letterSpacing: '0.03em' }}
               >
                 Why Trolley Dogs?
               </h2>
