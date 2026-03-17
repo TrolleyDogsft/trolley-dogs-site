@@ -34,19 +34,26 @@ export async function sendWeeklyDigest(html: string, subject: string): Promise<v
           name: campaignName,
           audiences: { included: [LIST_ID] },
           send_strategy: { method: 'immediate' },
-          'campaign-messages': [
-            {
-              channel: 'email',
-              content: {
-                subject,
-                preview_text: '',
-                from_email: FROM_EMAIL,
-                from_name: 'Trolley Dogs',
-                reply_to_email: FROM_EMAIL,
-                body: html,
+          'campaign-messages': {
+            data: [
+              {
+                type: 'campaign-message',
+                attributes: {
+                  definition: {
+                    channel: 'email',
+                    content: {
+                      subject,
+                      preview_text: '',
+                      from_email: FROM_EMAIL,
+                      from_label: 'Trolley Dogs',
+                      reply_to_email: FROM_EMAIL,
+                      body: html,
+                    },
+                  },
+                },
               },
-            },
-          ],
+            ],
+          },
         },
       },
     }),
