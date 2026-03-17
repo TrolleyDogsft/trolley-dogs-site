@@ -54,19 +54,19 @@ export default function GalleryPage() {
           </div>
 
           {/* Book CTA */}
-          <div className="mt-16 bg-[#0D0A09] p-10 text-center">
+          <div className="mt-16 p-10 text-center" style={{ background: 'var(--dark)' }}>
             <h3
-              className="text-[#F6F1E8] mb-3"
-              style={{ fontFamily: 'var(--font-bebas)', fontSize: '2rem', letterSpacing: '0.03em' }}
+              className="mb-3"
+              style={{ fontFamily: 'var(--font-head)', fontSize: '2rem', fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', color: 'var(--cream)' }}
             >
               Bring the Trolley to Your Event
             </h3>
-            <p className="text-[rgba(246,241,232,0.5)] text-sm mb-8">
+            <p style={{ color: 'rgba(251,245,232,0.5)', fontSize: '0.88rem', marginBottom: 32 }}>
               4 trucks available across Greater Boston and New England. Every event is custom.
             </p>
             <Link
               href="/book"
-              className="bg-[#8B1E1C] text-white px-8 py-3.5 font-extrabold text-sm tracking-wider uppercase hover:bg-[#6e1716] transition-colors"
+              style={{ background: 'var(--red)', color: 'var(--cream)', padding: '12px 32px', fontFamily: 'var(--font-head)', fontSize: '0.82rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', textDecoration: 'none', display: 'inline-block' }}
             >
               Book Your Event
             </Link>
