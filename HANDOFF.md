@@ -33,11 +33,12 @@ The site's only job: **get people to fill out the booking form**.
 ## Tech Stack (what the site is built with)
 
 - **Framework:** Next.js 14 (App Router) + TypeScript
-- **Styling:** Tailwind CSS
+- **Styling:** Tailwind CSS + CSS custom properties
 - **Fonts:** Google Fonts via next/font
-  - Bebas Neue → headlines (--font-bebas)
-  - Manrope → body text (--font-manrope)
-  - Lilita One → "Trolley Dogs" brand name (--font-cooper) — Cooper Black equivalent
+  - Lobster → "Trolley Dogs" brand name (--font-brand)
+  - Oswald → all headings and UI labels (--font-head)
+  - Nunito Sans → body text (--font-body)
+- **Color palette:** --red #C0311B, --cream #FBF5E8, --gold #F0C040, --dark #1C0F08
 - **Email:** Resend (booking form sends real emails)
 - **Newsletter:** Mailchimp (not yet connected — needs API key)
 - **Events calendar:** Google Calendar ICS (not yet connected — needs calendar URL)
@@ -193,14 +194,16 @@ No need to re-explain the whole project every time.
 
 ---
 
-## Design Rules (always enforced)
+## Design (v4 — current live design)
 
+- **Hero:** Full-bleed truck photo (new-truck-1.jpg) with dark gradient overlay
+- **Palette:** Warm cream/red/gold — red topbar, dark sticky nav, gold accent
+- **Layout sections:** Stats strip (red) → Feature photo cards → About split → Services grid → Menu strip → Testimonial → Events → Booking CTA → Social split → Newsletter
 - No emojis in UI
-- No pure black backgrounds — use tinted off-black
-- Max 1 accent color (dark red #8B1E1C)
+- No pure black — use var(--dark) #1C0F08
+- Max 1 accent color: var(--red) #C0311B
 - No generic marketing copy ("Seamless", "Elevate", "Unleash")
-- All fonts load from Google Fonts (not system fonts — system fonts don't work on Vercel's Linux servers)
-- Cooper Black = use Lilita One from Google Fonts (visually identical, works everywhere)
+- All fonts load from Google Fonts (not system fonts — system fonts break on Vercel's Linux servers)
 
 ---
 
@@ -213,5 +216,5 @@ No need to re-explain the whole project every time.
 
 ---
 
-*Last updated: March 2025*
+*Last updated: March 2026*
 *Managed by: Gerald + Claude Code*
