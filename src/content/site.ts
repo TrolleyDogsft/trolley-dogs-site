@@ -150,11 +150,11 @@ export const seo = {
     description: "Northeast's largest food truck vendor. All-beef hot dogs, full catering service, public events. 4 trucks, 1,000s of events since 1999. Book for your next event.",
   },
   menu: {
-    title: "Menu | Trolley Dogs Food Truck & Catering",
-    description: "All-beef hot dogs, specialty dogs, fries, chicken, and fresh lemonade. Explore what Trolley Dogs serves at events across Greater Boston and New England.",
+    title: "Hot Dog Menu | Trolley Dogs Food Truck Catering Boston",
+    description: "All-beef hot dogs, specialty dogs, fries, chicken, and fresh-squeezed lemonade. Explore what Trolley Dogs serves at events across Greater Boston and New England.",
   },
   events: {
-    title: "Upcoming Events | Find Trolley Dogs Near You",
+    title: "Upcoming Events | Trolley Dogs Food Truck — Greater Boston",
     description: "See where Trolley Dogs food trucks are appearing next. Festivals, markets, and public events across Greater Boston, MetroWest, and Central Massachusetts.",
   },
   about: {
@@ -162,15 +162,15 @@ export const seo = {
     description: "Started in 1999 with a refurbished horse-drawn trolley replica. Now the northeast's largest food truck vendor with 4 trucks and thousands of events per year.",
   },
   book: {
-    title: "Book Trolley Dogs | Catering Inquiry",
-    description: "Request catering for your event. Corporate, private parties, film & TV, schools, and more. Serving Greater Boston and New England. Get in touch today.",
+    title: "Book Trolley Dogs | Food Truck Catering Boston & New England",
+    description: "Request food truck catering for your event. Corporate, private parties, film & TV, schools, and more. Serving Greater Boston and New England. Get in touch today.",
   },
   gallery: {
     title: "Gallery | Trolley Dogs Events & Food Truck Photos",
-    description: "Photos of Trolley Dogs food trucks, events, and catering across Greater Boston and New England. See the trolley in action.",
+    description: "Photos of Trolley Dogs food trucks, events, and catering setups across Greater Boston and New England. 25+ years of events — see the trolley in action.",
   },
   contact: {
-    title: "Contact Trolley Dogs | 781-888-2930",
-    description: "Get in touch with Trolley Dogs. Call, email, or send a message. Serving Greater Boston, MetroWest, Central MA, and all of New England.",
+    title: "Contact Trolley Dogs | Greater Boston Food Truck Catering",
+    description: "Get in touch with Trolley Dogs. Call 781-888-2930, email, or send a message. Serving Greater Boston, MetroWest, Central MA, and all of New England. Book today.",
   },
 }

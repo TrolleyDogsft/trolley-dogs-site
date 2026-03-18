@@ -7,14 +7,36 @@ export const metadata: Metadata = {
   title: seo.book.title,
   description: seo.book.description,
   alternates: { canonical: '/book' },
+  openGraph: {
+    title: seo.book.title,
+    description: seo.book.description,
+    url: `${siteConfig.url}/book`,
+  },
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Food Truck Catering — Trolley Dogs',
+  provider: {
+    '@type': 'FoodTruck',
+    name: 'Trolley Dogs',
+    url: siteConfig.url,
+    telephone: siteConfig.phone,
+    email: siteConfig.bookingEmail,
+  },
+  areaServed: 'Greater Boston, MetroWest, Central Massachusetts, New England',
+  description: seo.book.description,
+  url: `${siteConfig.url}/book`,
 }
 
 export default function BookPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PageHero
         eyebrow="Catering &amp; Booking"
-        title="Let's Talk About Your Event"
+        title="Book Food Truck Catering — Boston & New England"
         subtitle="Fill out the form below and we'll get back to you within 24 hours. Every event is custom — we'll work with you on menu, pricing, and logistics."
       />
 

@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   title: seo.events.title,
   description: seo.events.description,
   alternates: { canonical: '/events' },
+  openGraph: {
+    title: seo.events.title,
+    description: seo.events.description,
+    images: [{ url: '/images/event-2023.jpg', width: 1200, height: 630, alt: 'Trolley Dogs food truck at a New England event' }],
+  },
 }
 
 export default async function EventsPage() {
@@ -50,7 +55,7 @@ export default async function EventsPage() {
 
                       {/* Info */}
                       <div className="flex-1">
-                        <h2 className="font-extrabold text-[#0D0A09] text-lg mb-1">{event.title}</h2>
+                        <h3 className="font-extrabold text-[#0D0A09] text-lg mb-1">{event.title}</h3>
                         <p className="text-[#9C7B6B] text-sm mb-1">{full}</p>
                         {event.location && (
                           <p className="text-[#5C4638] text-sm flex items-center gap-1.5">

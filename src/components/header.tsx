@@ -20,7 +20,7 @@ export function Header() {
       </div>
 
       {/* Main nav */}
-      <nav style={{ position: 'sticky', top: 0, zIndex: 50, background: 'var(--dark)', borderBottom: '3px solid var(--gold)', display: 'flex', alignItems: 'stretch', height: 64 }}>
+      <nav aria-label="Main navigation" style={{ position: 'sticky', top: 0, zIndex: 50, background: 'var(--dark)', borderBottom: '3px solid var(--gold)', display: 'flex', alignItems: 'stretch', height: 64 }}>
         {/* Brand */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '0 24px', borderRight: '1px solid rgba(251,245,232,0.08)', flexShrink: 0, textDecoration: 'none' }}>
           <Image

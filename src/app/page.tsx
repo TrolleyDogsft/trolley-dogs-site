@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   title: seo.home.title,
   description: seo.home.description,
   alternates: { canonical: '/' },
+  openGraph: {
+    title: seo.home.title,
+    description: seo.home.description,
+    images: [{ url: '/images/new-truck-1.jpg', width: 1200, height: 630, alt: 'Trolley Dogs food truck catering — Greater Boston & New England' }],
+  },
 }
 
 export default async function HomePage() {
@@ -48,8 +53,8 @@ export default async function HomePage() {
               textTransform: 'uppercase' as const,
             }}
           >
-            Book the Trolley.<br />
-            <span style={{ color: 'var(--red)' }}>Feed the Crowd.</span>
+            Food Truck Catering<br />
+            <span style={{ color: 'var(--red)' }}>Boston &amp; New England</span>
           </h1>
           <p style={{ color: 'rgba(251,245,232,0.6)', fontSize: '1rem', lineHeight: 1.8, maxWidth: 480, marginBottom: 36 }}>
             The largest food truck catering vendor in the Northeast. Four trucks, thousands of events,
@@ -124,6 +129,7 @@ export default async function HomePage() {
                   src={card.src}
                   alt={card.alt}
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   style={{ objectFit: 'cover' }}
                 />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(28,15,8,0.82) 0%, transparent 55%)' }} aria-hidden />
@@ -148,6 +154,7 @@ export default async function HomePage() {
             src="/images/green-trolley.jpg"
             alt="The original Trolley Dogs horse-drawn trolley car"
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             style={{ objectFit: 'cover' }}
           />
         </div>
@@ -430,16 +437,27 @@ export default async function HomePage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
-            '@type': 'FoodEstablishment',
+            '@type': 'FoodTruck',
             name: 'Trolley Dogs',
             description: siteConfig.description,
             url: siteConfig.url,
             telephone: siteConfig.phone,
             email: siteConfig.email,
-            areaServed: 'Greater Boston, New England',
-            servesCuisine: ['Hot Dogs', 'American'],
             foundingDate: '1999',
+            servesCuisine: ['Hot Dogs', 'American'],
             logo: siteConfig.logo,
+            image: `${siteConfig.url}/images/new-truck-1.jpg`,
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: 'Boston',
+              addressRegion: 'MA',
+              addressCountry: 'US',
+            },
+            areaServed: {
+              '@type': 'GeoCircle',
+              geoMidpoint: { '@type': 'GeoCoordinates', latitude: 42.3601, longitude: -71.0589 },
+              geoRadius: '200000',
+            },
             sameAs: [siteConfig.social.instagram, siteConfig.social.facebook].filter(s => s !== '#'),
           }),
         }}

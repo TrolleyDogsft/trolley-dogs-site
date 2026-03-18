@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: seo.menu.title,
   description: seo.menu.description,
   alternates: { canonical: '/menu' },
+  openGraph: {
+    title: seo.menu.title,
+    description: seo.menu.description,
+    images: [{ url: '/images/td-hot-dog.jpg', width: 1200, height: 630, alt: 'Trolley Dogs all-beef hot dog on a toasted sub roll' }],
+  },
 }
 
 export default function MenuPage() {
@@ -14,8 +19,22 @@ export default function MenuPage() {
     <>
       <PageHero
         eyebrow="What We Serve"
-        title="The Menu"
-        subtitle="Large all-beef hot dogs on toasted sub rolls, specialty sides, fresh lemonade, and more. All pricing is custom to your event."
+        title="Trolley Dogs Menu — Hot Dogs, Sides & More"
+        subtitle="Large all-beef hot dogs on toasted sub rolls, specialty sides, fresh-squeezed lemonade, and more. All pricing is custom to your event."
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://trolleydogsft.com' },
+              { '@type': 'ListItem', position: 2, name: 'Menu', item: 'https://trolleydogsft.com/menu' },
+            ],
+          }),
+        }}
       />
 
       <section className="py-16 md:py-24 px-6 md:px-10 bg-white">

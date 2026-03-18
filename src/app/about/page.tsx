@@ -8,11 +8,36 @@ export const metadata: Metadata = {
   title: seo.about.title,
   description: seo.about.description,
   alternates: { canonical: '/about' },
+  openGraph: {
+    title: seo.about.title,
+    description: seo.about.description,
+    url: `${siteConfig.url}/about`,
+  },
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Trolley Dogs',
+  url: siteConfig.url,
+  logo: `${siteConfig.url}/logo-bw.jpg`,
+  foundingDate: '1999',
+  description: siteConfig.description,
+  telephone: siteConfig.phone,
+  email: siteConfig.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressRegion: 'MA',
+    addressCountry: 'US',
+  },
+  areaServed: 'Greater Boston, MetroWest, Central Massachusetts, New England',
+  sameAs: [siteConfig.social.instagram, siteConfig.social.facebook],
 }
 
 export default function AboutPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PageHero
         eyebrow="The Story"
         title="Northeast's #1 Food Truck Vendor"
@@ -53,7 +78,7 @@ export default function AboutPage() {
             <div className="bg-[#0D0A09] p-8 flex flex-col items-center gap-4 max-w-xs w-full">
               <Image
                 src={siteConfig.logo}
-                alt="Trolley Dogs"
+                alt="Trolley Dogs food truck catering company logo"
                 width={140}
                 height={148}
                 className="opacity-90"

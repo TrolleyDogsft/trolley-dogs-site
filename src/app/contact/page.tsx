@@ -7,11 +7,33 @@ export const metadata: Metadata = {
   title: seo.contact.title,
   description: seo.contact.description,
   alternates: { canonical: '/contact' },
+  openGraph: {
+    title: seo.contact.title,
+    description: seo.contact.description,
+    url: `${siteConfig.url}/contact`,
+  },
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact Trolley Dogs',
+  url: `${siteConfig.url}/contact`,
+  description: seo.contact.description,
+  mainEntity: {
+    '@type': 'FoodTruck',
+    name: 'Trolley Dogs',
+    telephone: siteConfig.phone,
+    email: siteConfig.email,
+    url: siteConfig.url,
+    areaServed: 'Greater Boston, MetroWest, Central Massachusetts, New England',
+  },
 }
 
 export default function ContactPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PageHero
         eyebrow="Get in Touch"
         title="Contact Us"

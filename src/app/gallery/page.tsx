@@ -2,12 +2,30 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { PageHero } from '@/components/page-hero'
-import { seo } from '@/content/site'
+import { siteConfig, seo } from '@/content/site'
 
 export const metadata: Metadata = {
   title: seo.gallery.title,
   description: seo.gallery.description,
   alternates: { canonical: '/gallery' },
+  openGraph: {
+    title: seo.gallery.title,
+    description: seo.gallery.description,
+    url: `${siteConfig.url}/gallery`,
+  },
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ImageGallery',
+  name: 'Trolley Dogs Food Truck Events & Photos',
+  description: seo.gallery.description,
+  url: `${siteConfig.url}/gallery`,
+  author: {
+    '@type': 'Organization',
+    name: 'Trolley Dogs',
+    url: siteConfig.url,
+  },
 }
 
 const galleryImages = [
@@ -29,9 +47,10 @@ const galleryImages = [
 export default function GalleryPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PageHero
         eyebrow="Gallery"
-        title="The Trolley in Action"
+        title="Food Truck Events & Photos — Trolley Dogs"
         subtitle="Food truck events, catering setups, and appearances across Greater Boston and New England."
       />
 

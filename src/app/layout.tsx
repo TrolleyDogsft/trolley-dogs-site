@@ -5,6 +5,7 @@ import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { NewsletterPopup } from '@/components/newsletter-popup'
 import { siteConfig, seo } from '@/content/site'
+import { Analytics } from '@vercel/analytics/next'
 
 const lobster = Lobster({
   weight: '400',
@@ -37,9 +38,15 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: 'en_US',
     type: 'website',
+    title: seo.home.title,
+    description: seo.home.description,
+    images: [{ url: '/images/new-truck-1.jpg', width: 1200, height: 630, alt: 'Trolley Dogs food truck catering — Greater Boston & New England' }],
   },
   twitter: {
     card: 'summary_large_image',
+    title: seo.home.title,
+    description: seo.home.description,
+    images: ['/images/new-truck-1.jpg'],
   },
   robots: {
     index: true,
@@ -59,6 +66,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <NewsletterPopup />
+        <Analytics />
       </body>
     </html>
   )
